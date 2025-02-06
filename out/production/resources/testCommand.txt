@@ -1,0 +1,12 @@
+﻿REM Для тестирования REST сервиса по проекту HomeWorkSpringWebRest из командной строки Windows
+REM Отрабатывать построчно
+
+curl -X POST  10.2.10.61:8080/contacts -H "Content-Type: application/json" -d "{\"contactId\": 0, \"name\": \"Alijah\", \"surname\": \"Bergman\", \"phone\": \"+79708811718\", \"email\": \"bergman_alijah28@hotmail.com\"}"
+curl -X POST  10.2.10.61:8080/contacts -H "Content-Type: application/json" -d "{\"contactId\": 0, \"name\": \"Keili\", \"surname\": \"Teilor\", \"phone\": \"+79012478320\", \"email\": \"kaelyn-taylor76@inbox.ru\"}"
+curl -X POST  10.2.10.61:8080/contacts -H "Content-Type: application/json" -d "{\"contactId\": 0, \"name\": \"Evgenii\", \"surname\": \"Levin\", \"phone\": \"+79306199906\", \"email\": \"johnny-leyva85@yahoo.com\"}"
+curl -X POST  10.2.10.61:8080/contacts -H "Content-Type: application/json" -d "{\"contactId\": 0, \"name\": \"Valentin\", \"surname\": \"Abdulov\", \"phone\": \"+74869004862\", \"email\": \"abdul-valentine24@internet.ru\"}"
+
+curl -X GET 10.2.10.61:8080/contacts/3
+curl -X PUT  10.2.10.61:8080/contacts/3 -H "Content-Type: application/json" -d "{\"contactId\": 0, \"name\": \"Elena\", \"surname\": \"Kenni\", \"phone\": \"+77183126290\", \"email\": \"helena-kenney70@yahoo.com\"}"
+curl -X GET 10.2.10.61:8080/contacts/3
+curl -X GET 10.2.10.61:8080/contacts

@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example.phone'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    // Не пошло с get параметром - возможно в версии 3 много изменений, берём версию 2.7.18
+    //implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.4.2'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.18'
+}
