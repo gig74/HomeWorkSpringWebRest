@@ -25,7 +25,7 @@
 - ContactManagerMain.java - основной исполняемый класс, запускающий REST-контроллер
 - TestDaoMain.java - исполняемый класс для примера использования DAO уровня и интеграционного тестирования функциональности уровня DAO
 - facade/ContactFacade.java - класс для преобразования основных функций уровня DTO (компонент spring)
-- controller/ContactDao.java - класс объекта для контакта уровня DTO
+- controller/ContactDto.java - класс объекта для контакта уровня DTO
 - controller/ContactController - класс непосредственно реализации REST-сервиса ( RestController spring )
  
 - resources/testCommand.tst - файл с набором команд для проверки работы запущенного REST-контроллера из командной строки Windows
