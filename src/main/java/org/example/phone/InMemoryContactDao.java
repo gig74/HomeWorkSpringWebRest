@@ -1,8 +1,8 @@
 package org.example.phone;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import org.example.phone.exceptions.ContactNotFound;
+
+import java.util.*;
 
 public class InMemoryContactDao implements ContactDao {
     private long lastContactId = 1L;
@@ -21,19 +21,19 @@ public class InMemoryContactDao implements ContactDao {
     }
 
     @Override
-    public Contact getContact(long contactId) {
+    public Contact getContact(long contactId) throws ContactNotFound {
         return findContact(contactId)
-                .orElseThrow(() -> new IllegalArgumentException("Contact not found: " + contactId));
+                .orElseThrow(() -> new ContactNotFound("Contact not found: " + contactId));
     }
 
     @Override
-    public Contact[] getAllContact() {
-        Contact[] contacts = contactIdMap.values().toArray(new Contact[contactIdMap.size()]);
+    public List<Contact> getAllContact() {
+        List<Contact>  contacts = contactIdMap.values().stream().toList();
         return contacts;
     }
 
     @Override
-    public Contact modifyContact(long  contactId, Contact newInfoContact) {
+    public Contact modifyContact(long  contactId, Contact newInfoContact) throws ContactNotFound {
         Contact infoContact = getContact(contactId);
         infoContact.setName(newInfoContact.getName());
         infoContact.setSurname(newInfoContact.getSurname());
@@ -41,8 +41,15 @@ public class InMemoryContactDao implements ContactDao {
         infoContact.setEmail(newInfoContact.getEmail());
         return infoContact;
     }
+
     @Override
-    public Optional<Contact> findContact(long contactId) {
+    public void clearAllContacts() {
+        contactIdMap.clear();
+        lastContactId = 1L;
+    }
+
+    private Optional<Contact> findContact(long contactId) {
         return Optional.ofNullable(contactIdMap.get(contactId));
     }
+
 }

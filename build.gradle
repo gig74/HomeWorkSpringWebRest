@@ -14,4 +14,13 @@ dependencies {
     // Не пошло с get параметром - возможно в версии 3 много изменений, берём версию 2.7.18
     //implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.4.2'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.18'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.7.18'
+
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
 }

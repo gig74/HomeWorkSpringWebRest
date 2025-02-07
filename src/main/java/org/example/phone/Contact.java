@@ -1,5 +1,7 @@
 package org.example.phone;
 
+import java.util.Objects;
+
 public class Contact {
     private long id;
     private String name;
@@ -65,5 +67,28 @@ public class Contact {
                 ", email='" + email + '\'' +
                 '}' + '\n' ;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contact contact = (Contact) o;
+        if (id != contact.id) return false;
+        if (!Objects.equals(name, contact.name)) return false;
+        if (!Objects.equals(surname, contact.surname)) return false;
+        if (!Objects.equals(phone, contact.phone)) return false;
+        return Objects.equals(email, contact.email);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        return result;
+    }
+
 }
 
