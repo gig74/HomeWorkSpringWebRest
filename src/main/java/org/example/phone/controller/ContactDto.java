@@ -18,7 +18,7 @@ public class ContactDto {
     private String surname;
     @JsonProperty("phone")
     @NotNull
-    @Pattern(regexp = "^\\s?((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[\\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?\\s?")
+    @Pattern(regexp = "^\\s?((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[\\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?\\s?", message = "  Неверный номер телефона ")
     private String phone;
     @JsonProperty("email")
     @Email
