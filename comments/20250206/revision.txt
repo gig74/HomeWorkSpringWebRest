@@ -1,0 +1,11 @@
+Доработки: 
+
+1. Подправил названия методов в Rest контроллере .
+2. Везде сменил передачу масссива контактов на передачу списков контактов .
+3. Добавил аннотации для проверки некоторых данных DTO (ContactDto.java) из пакета javax.validation.constraints (добавлена также соответствующая зависимость в build.gradle) .
+4. Переделал пример использования TestMan.java на проверку функциональности классов на всех уровнях (DAO, DTO, Controller) . 
+5. В методе InMemoryContactDao.getContact() (метод также используется в modifyContact() и тд) переделал RuntimeExceprion IllegalArgumentException на кастомный Exception ContactNotFound . 
+"Прокинул" до контроллера .
+6. В Rest контроллер добавил обработчик @ExceptionHandler({Exception.class}), возвращающий HttpStatus.INTERNAL_SERVER_ERROR и в теле - сообщение об ошибке .
+7. Добавлены Unit-тесты InMemoryContactDaoTest, ContactFacadeTest и ContactControllerTest .
+8. Также произведены другие незначительные изменения/дополнения для тестирования и лучшей работы (добавления equals и тд.).
